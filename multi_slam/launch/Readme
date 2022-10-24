@@ -1,0 +1,20 @@
+
+# Install multi map merge package
+sudo apt install ros-kinetic-multirobot-map-merge
+
+# Start a new world (.world) with 2 turtlebots (tb0_0 and tb0_1)
+# Initialize the pose 
+# Utilize the turtlebot3_drive.cpp to navigate the turtlebots
+
+roslaunch multi_slam robots_multi_moving.launch
+
+# Subcript to the map topics of both turtlebots (tb3_0/map and tb3_1/map)
+# Create the global map by merging both, using known position method
+
+roslaunch multi_slam robots_multi_map_merge.launch
+
+# Visualize the maps
+rosrun rviz rviz -d `rospack find multi_slam`/rviz/robots_multi_slam.rviz
+
+# Save the map
+rosrun map_server map_saver -f ~/map/map_filename

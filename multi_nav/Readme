@@ -1,0 +1,12 @@
+
+
+# To create a world using .world map. You need to change to your own world
+# Default initial poses are tb3_0: (4,4) and tb3_1: (-4,-4)
+# Make sure your world has no obstacles at these positions
+
+roslaunch multi_nav robots_multi_static.launch
+
+# Launch the navigation map (pgm and yaml), you may need to load your new map, if different
+# Initial poses at the default position and start your navigation
+
+roslaunch multi_nav robots_multi_navigation.launch

@@ -1,0 +1,26 @@
+<launch>
+  <arg name="my_map" default="two_run_8_final.yaml"/>
+
+  <!-- Run the map server -->
+  <!--node name="map_server" pkg="map_server" type="map_server" args="$(find map_launcher)/map/pillar10x10_2028.yaml" -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find multi_world)/map_launcher/map/$(arg my_map)" >
+    <param name="frame_id" value="/map" />
+  </node>
+
+   <!-- Properties of each robot      -->
+    
+   <!-- AMCL      -->
+
+   <include file="$(find multi_nav)/launch/amcl_robot1.launch" />
+   <include file="$(find multi_nav)/launch/amcl_robot2.launch" />
+
+   <!--MOVE_BASE-->
+
+   <include file="$(find multi_nav)/launch/move_base_1.launch" />
+   <include file="$(find multi_nav)/launch/move_base_2.launch" />	
+
+   <!-- Launching Rviz      -->
+
+   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multi_world)/map_launcher/rviz/turtlebot3_navigation.rviz" />
+
+</launch>

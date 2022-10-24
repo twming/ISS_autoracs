@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>project_autoracs</name>
+  <version>1.3.1</version>
+  <description>
+    Gazebo simulation package for the Project AutoRACS
+  </description>
+  <license>TBD</license>
+  <maintainer email="123@abc.com">Project_AutoRACS</maintainer>
+  <url type="repository">https://github.com/powlook/project_autoracs</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>multi_slam</exec_depend>
+  <exec_depend>multi_nav</exec_depend>
+  <exec_depend>multi_world</exec_depend>
+  <export><metapackage/>
+  </export>
+</package>
